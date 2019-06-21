@@ -1,4 +1,7 @@
 package com.wojciechkniec.springAndMongo.repository;
 
-public class UsersRepository {
+import com.wojciechkniec.springAndMongo.document.Users;
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+public interface UsersRepository extends MongoRepository<Users, Integer> {
 }

@@ -2,6 +2,7 @@ package com.wojciechkniec.springAndMongo.resource;
 
 import com.wojciechkniec.springAndMongo.document.Users;
 import com.wojciechkniec.springAndMongo.repository.UsersRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 

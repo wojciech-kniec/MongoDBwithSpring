@@ -47,4 +47,7 @@ public class Users {
     public void setSalary(Long salary) {
         this.salary = salary;
     }
+
+    public Users() {
+    }
 }

@@ -2,6 +2,7 @@ package com.wojciechkniec.springAndMongo.resource;
 
 import com.wojciechkniec.springAndMongo.document.Users;
 import com.wojciechkniec.springAndMongo.repository.UsersRepository;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,5 +30,15 @@ public class UsersResource {
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public void delete(@PathVariable String id) {
         usersRepository.delete(Integer.valueOf(id));
+    }
+
+    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void create(@RequestBody Users users) {
+        usersRepository.save(users);
+    }
+
+    @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void update(@RequestBody Users users) {
+        usersRepository.save(users);
     }
 }

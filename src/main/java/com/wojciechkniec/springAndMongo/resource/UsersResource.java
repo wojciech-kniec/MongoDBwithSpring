@@ -2,10 +2,7 @@ package com.wojciechkniec.springAndMongo.resource;
 
 import com.wojciechkniec.springAndMongo.document.Users;
 import com.wojciechkniec.springAndMongo.repository.UsersRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,4 +26,8 @@ public class UsersResource {
         return usersRepository.findOne(Integer.valueOf(id));
     }
 
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public void delete(@PathVariable String id) {
+        usersRepository.delete(Integer.valueOf(id));
+    }
 }

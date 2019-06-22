@@ -2,7 +2,10 @@ package com.wojciechkniec.springAndMongo.resource;
 
 import com.wojciechkniec.springAndMongo.document.Users;
 import com.wojciechkniec.springAndMongo.repository.UsersRepository;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -21,9 +24,9 @@ public class UsersResource {
         return usersRepository.findAll();
     }
 
-    @PostMapping(value = "/create")
-    public List<Users> create(@RequestBody List<Users> users){
-        return usersRepository.save(new Users()));
+    @RequestMapping(value = "/{id}")
+    public Users read(@PathVariable String id) {
+        return usersRepository.findOne(Integer.valueOf(id));
     }
 
 }
